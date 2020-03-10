@@ -2,16 +2,10 @@
 
 @section('content')
         <hr>
-
-        <div>
-            {!! Form::model($task, ['route' => 'tasks.store']) !!}
-                
-                <div class="form-group">
-                    {!! Form::text('content', null, ['class' => 'form-control']) !!}
-                </div>
-                
-                {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-                
-            {!! Form::close() !!}
-        </div>
+        
+        {!! Form::model($task, ['route' => 'tasks.store']) !!}
+            {!! Form::textarea('content', null, ['class' => 'form-control col-sm-8 mb-2', 'rows' => '7']) !!}
+            {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+        {!! Form::close() !!}
+        
 @endsection

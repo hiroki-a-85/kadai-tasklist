@@ -5,6 +5,6 @@
    
    @foreach ( $tasks as $task )
        <hr>
-       <div>{!! link_to_route('tasks.show', $task->content, ['id' => $task->id]) !!}</div>
+       <div id="index-list">{!! link_to_route('tasks.show', $task->content, ['id' => $task->id]) !!}</div>
    @endforeach
 @endsection
