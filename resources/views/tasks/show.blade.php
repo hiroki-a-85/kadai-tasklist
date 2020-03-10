@@ -13,5 +13,5 @@
 
        <hr>
        
-       <div>{{ $task->content }}</div>
+       <div id="show-field">{{ $task->content }}</div>
 @endsection

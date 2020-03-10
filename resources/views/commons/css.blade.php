@@ -9,8 +9,10 @@
         text-decoration: none;
     }
     
-    #index-list a{
+    #index-list a, #show-field{
         color:black;
+        /*改行コードを認識して、改行して表示させる*/
+        white-space: pre-wrap;
     }
     
     #edit-button, #delete-button{
