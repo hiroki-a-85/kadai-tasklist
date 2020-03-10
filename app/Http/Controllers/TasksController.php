@@ -14,7 +14,8 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        //updated_atが最新のものを上から表示するように取得
+        $tasks = Task::orderBy('updated_at', 'desc')->get();
         return view('tasks.index', ['tasks' => $tasks]);
     }
 
