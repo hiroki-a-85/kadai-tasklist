@@ -27,4 +27,10 @@
         width:67px;
     }
     
+    #created_at, #updated_at{
+        color:#c8c2c6;
+        font-style:oblique;    /* 斜体 */
+        margin-top:10px;
+    }
+    
 </style>
