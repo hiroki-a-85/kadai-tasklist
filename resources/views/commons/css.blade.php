@@ -9,10 +9,30 @@
         text-decoration: none;
     }
     
-    #index-list a, #show-field{
+    #index-list-status{
+        display: inline-block;
+        margin-right:22px;
+    }
+    
+    #index-list-status a{
+        color:#c8c2c6;
+        font-style:oblique;    /* 斜体 */
+    }
+    
+    #index-list-content{
+        display: inline-block;
+    }
+    
+    #index-list-content a{
         color:black;
-        /*改行コードを認識して、改行して表示させる*/
-        white-space: pre-wrap;
+    }
+    
+    #show-content{
+        white-space: pre-wrap;    /*改行コードを認識し、改行して表示する*/
+    }
+    
+    #show-status, #show-content{
+        margin-bottom: 30px;
     }
     
     #edit-button, #delete-button{
@@ -27,10 +47,14 @@
         width:67px;
     }
     
-    #created_at, #updated_at{
+    #created_at, #updated_at, #show-status-label, #show-content-label{
         color:#c8c2c6;
-        font-style:oblique;    /* 斜体 */
+        font-style:oblique;
         margin-top:10px;
+    }
+    
+    .status-input{
+        width:300px;
     }
     
 </style>
