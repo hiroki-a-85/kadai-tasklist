@@ -10,7 +10,9 @@
     @include('commons.css')
     
     <body>
-        <header><h1><a href="/">TaskList</a></header>
+        @include('commons.navbar')
+        
+        @include('commons.error_messages')
         
         @yield('content')
         

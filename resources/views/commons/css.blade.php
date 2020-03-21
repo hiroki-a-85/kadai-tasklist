@@ -3,10 +3,9 @@
     body{
         margin:10px;
     }
-
-    header a, header a:hover{
-        color:black;
-        text-decoration: none;
+    
+    #logo{
+        font-size:32px;
     }
     
     #index-list-status{
