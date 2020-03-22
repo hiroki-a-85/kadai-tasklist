@@ -21,7 +21,8 @@
 
                 {!! Form::submit('Login', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
-
+            
+            <p class="mt-2">If you not signed up : {!! link_to_route('signup.get', 'Sign Up Now') !!}</p>
         </div>
     </div>
 @endsection
