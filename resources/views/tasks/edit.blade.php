@@ -1,16 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <hr>
-    
-    @if (count($errors) > 0)
-        <ul class="alert alert-danger" role="alert">
-            @foreach ( $errors->all() as $error )
-                <li class="ml-4">{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
-    
     {!! Form::model($task, ['route' => ['tasks.update', $task->id], 'method' => 'put']) !!}
         {!! Form::label('status', 'Status:') !!}
         {!! Form::text('status', null, ['class' => 'form-control mb-3 status-input']) !!}

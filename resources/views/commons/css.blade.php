@@ -22,7 +22,7 @@
         display: inline-block;
     }
     
-    #index-list-content a{
+    #index-list-content a, #logout{
         color:black;
     }
     

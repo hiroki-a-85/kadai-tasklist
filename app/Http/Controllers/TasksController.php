@@ -14,9 +14,20 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //updated_atが最新のものを上から表示するように取得
-        $tasks = Task::orderBy('updated_at', 'desc')->get();
-        return view('tasks.index', ['tasks' => $tasks]);
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            
+            //updated_atが最新のものを上から表示するように取得
+            $tasks = $user->tasks()->orderBy('updated_at', 'desc')->get();
+            
+            $data = [
+                'user' => $user,
+                'tasks' => $tasks,
+            ];
+        }
+        
+        return view('tasks.index', $data);
     }
 
     /**
@@ -26,8 +37,11 @@ class TasksController extends Controller
      */
     public function create()
     {
-        $task = new Task;
-        return view('tasks.create', ['task' => $task]);
+        if (\Auth::check()) {
+            return view('tasks.create');
+        }else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -43,10 +57,11 @@ class TasksController extends Controller
             'content' => 'required|max:191'
         ]);
         
-        $task = new Task;
-        $task->content = $request->content;
-        $task->status = $request->status;
-        $task->save();
+        $request->user()->tasks()->create([
+            'content' => $request->content,
+            'status' => $request->status,
+        ]);
+
         return redirect('/');
     }
 
@@ -59,7 +74,13 @@ class TasksController extends Controller
     public function show($id)
     {
         $task = Task::find($id);
-        return view('tasks.show', ['task' => $task]);
+        
+        if (\Auth::id() == $task->user_id)
+        {
+            return view('tasks.show', ['task' => $task]);
+        }else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -71,7 +92,13 @@ class TasksController extends Controller
     public function edit($id)
     {
         $task = Task::find($id);
-        return view('tasks.edit', ['task' => $task]);
+        
+        if (\Auth::id() == $task->user_id)
+        {
+            return view('tasks.edit', ['task' => $task]);
+        }else{
+            return redirect('/');
+        }
     }
 
     /**
